@@ -37,11 +37,9 @@ namespace premier_programme
             return ageNum;
         }
 
-        static void Main(string[] args)
+        static string DemanderNom()
         {
-            // Console.OutputEncoding = System.Text.Encoding.UTF8; peut servir si les accents ne s'affichent pas par exemple
-
-            // ON DEMANDE LE NOM
+                        // ON DEMANDE LE NOM
             string personName = "";
             while (personName == "")
             {
@@ -53,9 +51,16 @@ namespace premier_programme
                     Console.WriteLine("Le nom ne doit pas être vide");
                     }
             }
+            return personName;
+        }
+
+        static void Main(string[] args)
+        {
+            // Console.OutputEncoding = System.Text.Encoding.UTF8; peut servir si les accents ne s'affichent pas par exemple
 
             // ON DEMANDE L'ÂGE
             int ageNum = DemanderAge();
+            string personName = DemanderNom();
 
             Console.WriteLine("Bonjour, enchanté " + personName);
 
