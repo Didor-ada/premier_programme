@@ -5,7 +5,7 @@ namespace premier_programme
     class Program
     {
 
-        static int DemanderAge(string personName) // ici on déclare des paramètres, que l'on sépare avec des virgules
+        static int DemanderAge(string personName) // ici on déclare des paramètres, que l'on sépare avec des virgules 
         {
             int ageNum = 0;
             while (ageNum <= 0)
@@ -53,11 +53,14 @@ namespace premier_programme
             return personName;
         }
 
-        static void AfficherInfosPersonne(string personName, int ageNum)
+        static void AfficherInfosPersonne(string personName, int ageNum, float taille = 0) // le = 0 rend ce paramètre plus forcément obligatoire / Les paramètres optionnels se mettent toujours à la fin
         {
             Console.WriteLine(); //on le laisse complètement vide pour sauter une ligne
-            Console.WriteLine("Vous portez très bien vos " + ageNum + " et votre nom : " + personName + " également !");
+            Console.WriteLine("Vous portez très bien vos " + ageNum + "\net votre nom : " + personName + " également !"); // \n fait revenir à la ligne
+            // autre manière d'écrire la ligne du dessus : Console.WriteLine($"Vous portez très bien vos {ageNum} et votre nom {personName} également !");
+            
             Console.WriteLine("et bientôt vous aurez " + (ageNum + 1) + " ans"); // Ici on refactorise, un +1 dans des parenthèses fait un calcul et non une concaténation
+            // autre manière : Console.WriteLine($"et bientôt vous aurez {(ageNum + 1)} ans");
 
             // si l'age >=18 -> majeur sinon mineur
             // age == 17 -> Vous serez bientôt majeur
@@ -103,6 +106,12 @@ namespace premier_programme
             {
                 Console.WriteLine("Vous êtes mineur");
             }
+
+            if (taille != 0)
+            {
+                Console.WriteLine("Vous faites " + taille + " m de hauteur");
+            }
+            
         }
 
         static void Main(string[] args)
@@ -115,15 +124,11 @@ namespace premier_programme
             
             int ageNum1 = DemanderAge(personName1);
             int ageNum2 = DemanderAge(personName2);
-            
 
             Console.WriteLine("Bonjour, enchanté " + personName1);
 
-            AfficherInfosPersonne(personName1, ageNum1);
+            AfficherInfosPersonne(personName1, ageNum1, 1.75f);
             AfficherInfosPersonne(personName2, ageNum2);
-
-
-            // ici ageNum est forcément différent de 0
         }
     }
 }
